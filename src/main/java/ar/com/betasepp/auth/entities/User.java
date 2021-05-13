@@ -1,8 +1,10 @@
 package ar.com.betasepp.auth.entities;
 
-import java.math.BigInteger;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,11 +19,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Usuarios",schema = "Sistema")
+//@Table(name = "Usuarios",schema = "Sistema")
+@Table(name = "Usuarios")
 public class User {
 
-	private BigInteger id;
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "usr_id")
+	private Integer id;
+//	@NotNull
+	@Column(name = "usr_mail")
+	private String email;
+	@Column(name = "usr_name")
+	private String name;
 
 
 	
